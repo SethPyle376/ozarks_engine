@@ -12,7 +12,9 @@ class GameObject
   private:
       uint32_t id;
   public:
-      virtual void serialize() = 0;
+      virtual void serialize() {
+        return;
+      };
       
 };
 
