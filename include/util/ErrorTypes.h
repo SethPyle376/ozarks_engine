@@ -1,0 +1,13 @@
+//
+// Created by seth on 6/8/20.
+//
+
+#ifndef OZARKS_ENGINE_ERRORTYPES_H
+#define OZARKS_ENGINE_ERRORTYPES_H
+
+enum ERROR_TYPE {
+  SUCCESS,
+  FAILURE
+};
+
+#endif//OZARKS_ENGINE_ERRORTYPES_H

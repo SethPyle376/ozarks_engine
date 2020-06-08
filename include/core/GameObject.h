@@ -15,7 +15,9 @@ class GameObject
       virtual void serialize() {
         return;
       };
-      
+
+      void setId(uint32_t id);
+      uint32_t getId();
 };
 
 #endif //OZARKS_ENGINE_GAMEOBJECT_H
