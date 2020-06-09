@@ -2,7 +2,7 @@
 // Created by seth on 6/8/20.
 //
 
-#include "core/GameObject.h"
+#include "core/types/GameObject.h"
 
 uint32_t GameObject::getId()
 {

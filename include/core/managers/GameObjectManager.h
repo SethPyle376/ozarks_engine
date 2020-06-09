@@ -5,7 +5,7 @@
 #ifndef OZARKS_ENGINE_GAMEOBJECTMANAGER_H
 #define OZARKS_ENGINE_GAMEOBJECTMANAGER_H
 
-#include <core/GameObject.h>
+#include <core/types/GameObject.h>
 #include <unordered_map>
 #include <util/ErrorTypes.h>
 
