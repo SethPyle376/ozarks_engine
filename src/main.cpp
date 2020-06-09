@@ -6,6 +6,7 @@
 
 #include "core/types/Actor.h"
 #include "core/managers/GameObjectManager.h"
+#include "core/components/TestComponent.h"
 
 int main()
 {
@@ -15,12 +16,20 @@ int main()
   Actor* testActor2 = new Actor();
   Actor* testActor3 = new Actor();
 
+  TestComponent* testComponent = new TestComponent();
+
   objectManager->registerObject(testActor1);
   objectManager->registerObject(testActor2);
   objectManager->registerObject(testActor3);
 
+  objectManager->registerObject(testComponent);
+
   testActor1->addChild(testActor2);
   testActor2->addChild(testActor3);
+
+  testActor1->addComponent(testComponent);
+
+  testActor1->tick(0);
 
   delete testActor1;
 

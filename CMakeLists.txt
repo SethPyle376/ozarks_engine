@@ -8,7 +8,8 @@ include_directories(external/glm)
 
 file(GLOB MAINSOURCES src/*.cpp)
 file(GLOB SUBSOURCES src/*/*.cpp)
+file(GLOB SUBSUBSOURCES src/*/*/*.cpp)
 
-set(SOURCE_FILES ${MAINSOURCES} ${SUBSOURCES})
+set(SOURCE_FILES ${MAINSOURCES} ${SUBSOURCES} ${SUBSUBSOURCES})
 
-add_executable(ozarks_engine src/main.cpp include/core/types/GameObject.h include/util/Types.h include/core/managers/GameObjectManager.h include/util/ErrorTypes.h src/core/managers/GameObjectManager.cpp src/core/types/GameObject.cpp include/core/types/Actor.h src/core/types/Actor.cpp include/core/components/ActorComponent.h)
+add_executable(ozarks_engine ${SOURCE_FILES})
