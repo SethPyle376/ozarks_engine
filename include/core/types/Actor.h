@@ -19,6 +19,9 @@ class Actor : public GameObject
       Actor* parent = nullptr;
       std::vector<Actor*> children;
       std::vector<ActorComponent*> components;
+
+      void tickComponents(float delta);
+      void tickChildren(float delta);
   public:
       Actor();
       ~Actor();
@@ -29,9 +32,6 @@ class Actor : public GameObject
 
       void addChild(Actor* child);
       void addComponent(ActorComponent* component);
-
-      void tickComponents(float delta);
-      void tickChildren(float delta);
 
       glm::vec3 getWorldPosition();
 

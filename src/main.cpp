@@ -11,6 +11,7 @@
 int main()
 {
   GameObjectManager *objectManager = GameObjectManager::getInstance();
+  ComponentManager *componentManager = ComponentManager::getInstance();
 
   Actor* testActor1 = new Actor();
   Actor* testActor2 = new Actor();
@@ -21,8 +22,6 @@ int main()
   objectManager->registerObject(testActor1);
   objectManager->registerObject(testActor2);
   objectManager->registerObject(testActor3);
-
-  objectManager->registerObject(testComponent);
 
   testActor1->addChild(testActor2);
   testActor2->addChild(testActor3);

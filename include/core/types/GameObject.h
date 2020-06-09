@@ -5,6 +5,8 @@
 #ifndef OZARKS_ENGINE_GAMEOBJECT_H
 #define OZARKS_ENGINE_GAMEOBJECT_H
 
+#include <string>
+
 #include "util/Types.h"
 
 class GameObject
@@ -12,6 +14,7 @@ class GameObject
   private:
       uint32_t id;
   public:
+      std::string name;
       virtual void tick(float delta) = 0;
       virtual void serialize() {
         return;

@@ -16,6 +16,10 @@ Actor::~Actor()
     delete actor;
   }
 
+  for (ActorComponent* component : components) {
+    delete component;
+  }
+
   GameObjectManager::getInstance()->deregisterObject(this);
 }
 

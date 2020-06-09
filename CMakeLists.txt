@@ -10,6 +10,6 @@ file(GLOB MAINSOURCES src/*.cpp)
 file(GLOB SUBSOURCES src/*/*.cpp)
 file(GLOB SUBSUBSOURCES src/*/*/*.cpp)
 
-set(SOURCE_FILES ${MAINSOURCES} ${SUBSOURCES} ${SUBSUBSOURCES})
+set(SOURCE_FILES ${MAINSOURCES} ${SUBSOURCES} ${SUBSUBSOURCES} include/core/managers/ComponentManager.h src/core/managers/ComponentManager.cpp)
 
 add_executable(ozarks_engine ${SOURCE_FILES})
