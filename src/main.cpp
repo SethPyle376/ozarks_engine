@@ -8,10 +8,14 @@
 #include "core/managers/GameObjectManager.h"
 #include "core/components/TestComponent.h"
 
+#include "core/resources/ResourceManager.h"
+#include "core/resources/test/TestResourceFactory.h"
+
 int main()
 {
   GameObjectManager *objectManager = GameObjectManager::getInstance();
   ComponentManager *componentManager = ComponentManager::getInstance();
+  ResourceManager *resourceManager = ResourceManager::getInstance();
 
   Actor* testActor1 = new Actor();
   Actor* testActor2 = new Actor();
@@ -31,6 +35,12 @@ int main()
   testActor1->tick(0);
 
   delete testActor1;
+
+  TestResourceFactory *factory = new TestResourceFactory();
+
+  resourceManager->registerFactory(factory);
+
+  ResourceHandle testResource = resourceManager->getResource("test/testResource.json");
 
   std::cout << "test" << std::endl;
 }

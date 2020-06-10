@@ -5,12 +5,16 @@
 #ifndef OZARKS_ENGINE_TESTRESOURCEFACTORY_H
 #define OZARKS_ENGINE_TESTRESOURCEFACTORY_H
 
-#include "TestResource.h"
+#include "core/resources/test/TestResource.h"
 #include "core/resources/ResourceFactory.h"
 
 class TestResourceFactory : public ResourceFactory {
   public:
-      Resource* loadResource(std::string path) {
+      TestResourceFactory() {
+        this->type = "test_resource";
+      }
+
+      Resource* loadResource(std::string path) override {
         return new TestResource();
       }
 };
