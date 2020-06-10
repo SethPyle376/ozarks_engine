@@ -11,6 +11,7 @@ void ResourceRefCounter::incrementResourceCount(std::string path) {
 CounterResult ResourceRefCounter::decrementResourceCount(std::string path) {
   refMap[path]--;
   if(refMap[path] <= 0) {
+    refMap.erase(path);
     return RESOURCE_NEEDS_DELETED;
   } else {
     return RESOURCE_OK;
