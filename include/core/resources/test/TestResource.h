@@ -6,6 +6,7 @@
 #define OZARKS_ENGINE_TESTRESOURCE_H
 
 #include "core/resources/Resource.h"
+#include "core/resources/ResourceManager.h"
 
 class TestResource : public Resource {
   public:

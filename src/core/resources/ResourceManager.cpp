@@ -43,6 +43,11 @@ ResourceHandle ResourceManager::getResource(std::string path) {
 
   ResourceHandle handle;
   handle.resource = resourceMap[path];
+  handle.path = path;
+  handle.type = resourceMap[path]->type;
+
+  refCounter.incrementResourceCount(path);
+
   return handle;
 }
 
@@ -52,4 +57,12 @@ ResourceManager* ResourceManager::getInstance() {
   }
 
   return instance;
+}
+
+void ResourceManager::destroyResource(ResourceHandle* handle) {
+  CounterResult result = refCounter.decrementResourceCount(handle->path);
+
+  if (result == RESOURCE_NEEDS_DELETED) {
+    delete handle->resource;
+  }
 }

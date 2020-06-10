@@ -5,15 +5,18 @@
 #ifndef OZARKS_ENGINE_RESOURCEHANDLE_H
 #define OZARKS_ENGINE_RESOURCEHANDLE_H
 
-#include <string>
 #include <cstdint>
+#include <string>
+
+#include "Resource.h"
 
 class ResourceHandle {
-  private:
+  public:
+      ~ResourceHandle();
+
       std::string path;
       std::string type;
-  public:
-    Resource* resource;
+      Resource* resource;
 };
 
 

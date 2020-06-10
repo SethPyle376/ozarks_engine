@@ -40,7 +40,9 @@ int main()
 
   resourceManager->registerFactory(factory);
 
-  ResourceHandle testResource = resourceManager->getResource("test/testResource.json");
+  {
+    ResourceHandle testResource = resourceManager->getResource("test/testResource.json");
+  }
 
   std::cout << "test" << std::endl;
 }

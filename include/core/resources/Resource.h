@@ -5,6 +5,13 @@
 #ifndef OZARKS_ENGINE_RESOURCE_H
 #define OZARKS_ENGINE_RESOURCE_H
 
+#include <string>
 #include <cstdint>
-class Resource {};
+
+class ResourceManager;
+
+class Resource {
+  public:
+      std::string type;
+};
 #endif//OZARKS_ENGINE_RESOURCE_H
