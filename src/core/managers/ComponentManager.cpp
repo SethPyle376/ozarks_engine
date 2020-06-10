@@ -13,6 +13,9 @@ ERROR_TYPE ComponentManager::registerComponent(ActorComponent *component) {
 
 ERROR_TYPE ComponentManager::deregisterComponent(ActorComponent *component) {
   componentMap[component->name].erase(component->getId());
+  if (componentMap[component->name].empty()) {
+    componentMap.erase(component->name);
+  }
   return SUCCESS;
 }
 

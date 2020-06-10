@@ -13,10 +13,8 @@
 class TestComponent : public ActorComponent
 {
   public:
-      TestComponent() {
+      TestComponent() : ActorComponent("test_component") {
         name = "test_component";
-        GameObjectManager::getInstance()->registerObject(this);
-        ComponentManager::getInstance()->registerComponent(this);
       }
 
       ~TestComponent() {

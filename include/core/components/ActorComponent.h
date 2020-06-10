@@ -5,6 +5,7 @@
 #ifndef OZARKS_ENGINE_ACTORCOMPONENT_H
 #define OZARKS_ENGINE_ACTORCOMPONENT_H
 
+
 #include <string>
 
 #include "core/types/GameObject.h"
@@ -14,7 +15,8 @@ class Actor;
 class ActorComponent : public GameObject
 {
   public:
-      virtual ~ActorComponent() = default;
+      ActorComponent(std::string name);
+      virtual ~ActorComponent();
       Actor* parent = nullptr;
       void tick(float delta) override = 0;
 };
