@@ -29,7 +29,7 @@ Resource* ResourceManager::loadResource(std::string path) {
 
   std::string resourceType = document["type"].GetString();
 
-  Resource* resource = resourceFactoryMap[resourceType]->loadResource(path);
+  Resource* resource = resourceFactoryMap[resourceType]->loadResource(document);
 
   return resource;
 }
@@ -63,6 +63,7 @@ void ResourceManager::destroyResource(ResourceHandle* handle) {
   CounterResult result = refCounter.decrementResourceCount(handle->path);
 
   if (result == RESOURCE_NEEDS_DELETED) {
+    resourceMap.erase(handle->path);
     delete handle->resource;
   }
 }

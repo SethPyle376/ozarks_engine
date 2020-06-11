@@ -3,10 +3,11 @@
 //
 
 #include <iostream>
+#include <renderer/resources/MeshResourceFactory.h>
 
-#include "core/types/Actor.h"
-#include "core/managers/GameObjectManager.h"
 #include "core/components/TestComponent.h"
+#include "core/managers/GameObjectManager.h"
+#include "core/types/Actor.h"
 
 #include "core/resources/ResourceManager.h"
 #include "core/resources/test/TestResourceFactory.h"
@@ -39,11 +40,14 @@ int main()
   delete testActor1;
 
   TestResourceFactory *factory = new TestResourceFactory();
+  MeshResourceFactory *meshFactory = new MeshResourceFactory();
 
   resourceManager->registerFactory(factory);
+  resourceManager->registerFactory(meshFactory);
 
   {
     ResourceHandle testResource = resourceManager->getResource("test/testResource.json");
+    ResourceHandle testMeshResource = resourceManager->getResource("test/renderer/testMeshResource.json");
   }
 
   std::cout << "test" << std::endl;

@@ -14,7 +14,7 @@ class TestResourceFactory : public ResourceFactory {
         this->type = "test_resource";
       }
 
-      Resource* loadResource(std::string path) override {
+      Resource* loadResource(rapidjson::Document& document) override {
         return new TestResource();
       }
 };

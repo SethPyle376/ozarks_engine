@@ -9,6 +9,7 @@
 
 #include "core/components/ActorComponent.h"
 #include "core/managers/ComponentManager.h"
+#include "core/types/Actor.h"
 
 class TestComponent : public ActorComponent
 {
@@ -22,7 +23,7 @@ class TestComponent : public ActorComponent
       }
 
       void tick(float delta) override {
-        std::cout << "tick from test component id: " << this->getId() << " parent id: " << parent->getId() << std::endl;
+        std::cout << "tick from test component id: " << this->getId() << " parent id: " << this->parent->getId() << std::endl;
       }
 };
 

@@ -6,13 +6,14 @@
 #define OZARKS_ENGINE_RESOURCEFACTORY_H
 
 #include "Resource.h"
+#include "rapidjson/document.h"
 #include <string>
 
 class ResourceFactory {
   public:
       std::string type;
 
-      virtual Resource* loadResource(std::string path) = 0;
+      virtual Resource* loadResource(rapidjson::Document& document) = 0;
 };
 
 #endif//OZARKS_ENGINE_RESOURCEFACTORY_H

@@ -22,7 +22,7 @@ file(GLOB MAINSOURCES src/*.cpp)
 file(GLOB SUBSOURCES src/*/*.cpp)
 file(GLOB SUBSUBSOURCES src/*/*/*.cpp)
 
-set(SOURCE_FILES ${MAINSOURCES} ${SUBSOURCES} ${SUBSUBSOURCES})
+set(SOURCE_FILES ${MAINSOURCES} ${SUBSOURCES} ${SUBSUBSOURCES} include/renderer/resources/MeshResourceFactory.h include/renderer/VertexLayout.h src/renderer/resources/MeshResourceFactory.cpp include/renderer/resources/RenderResource.h)
 
 include_directories(external/bimg/3rdparty)
 include_directories(external/bimg/3rdparty/astc-codec/include)
