@@ -11,6 +11,8 @@
 #include "core/resources/ResourceManager.h"
 #include "core/resources/test/TestResourceFactory.h"
 
+#include "bgfx/bgfx.h"
+
 int main()
 {
   GameObjectManager *objectManager = GameObjectManager::getInstance();
