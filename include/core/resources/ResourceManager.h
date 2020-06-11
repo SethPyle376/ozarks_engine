@@ -31,6 +31,7 @@ class ResourceManager {
       static ResourceManager* getInstance();
       void registerFactory(ResourceFactory *factory);
       ResourceHandle getResource(std::string path);
+      void getResource(std::string path, std::string type, ResourceHandle& handle);
       void destroyResource(ResourceHandle* handle);
 };
 

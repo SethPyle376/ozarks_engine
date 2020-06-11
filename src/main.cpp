@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <renderer/resources/MeshResourceFactory.h>
+#include <renderer/resources/ModelResourceFactory.h>
 
 #include "core/components/TestComponent.h"
 #include "core/managers/GameObjectManager.h"
@@ -41,14 +42,19 @@ int main()
 
   TestResourceFactory *factory = new TestResourceFactory();
   MeshResourceFactory *meshFactory = new MeshResourceFactory();
+  ModelResourceFactory *modelFactory = new ModelResourceFactory();
 
   resourceManager->registerFactory(factory);
   resourceManager->registerFactory(meshFactory);
+  resourceManager->registerFactory(modelFactory);
 
-  {
-    ResourceHandle testResource = resourceManager->getResource("test/testResource.json");
-    ResourceHandle testMeshResource = resourceManager->getResource("test/renderer/testMeshResource.json");
-  }
+
+  ResourceHandle testResource = resourceManager->getResource("test/testResource.json");
+  ResourceHandle testMeshResource = resourceManager->getResource("test/renderer/testMeshResource.json");
+  ResourceHandle testModelResource = resourceManager->getResource("test/renderer/testModelResource.json");
+  ModelResource* modelResource = (ModelResource*)(testModelResource.resource);
+  std::cout << "resources created" << std::endl;
+
 
   std::cout << "test" << std::endl;
 }

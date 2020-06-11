@@ -67,3 +67,19 @@ void ResourceManager::destroyResource(ResourceHandle* handle) {
     delete handle->resource;
   }
 }
+
+void ResourceManager::getResource(std::string path, std::string type, ResourceHandle& handle) {
+  std::string absolutePath = assetPath + path;
+
+  handle.path = path;
+  handle.type = type;
+
+  std::unordered_map<std::string, Resource*>::const_iterator iter = resourceMap.find(path);
+  if (iter == resourceMap.end()) {
+    resourceMap[path] = resourceFactoryMap[type]->loadResource(absolutePath);
+  }
+
+  handle.resource = resourceMap[path];
+
+  refCounter.incrementResourceCount(path);
+}

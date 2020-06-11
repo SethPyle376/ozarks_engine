@@ -13,6 +13,7 @@ class ResourceFactory {
   public:
       std::string type;
 
+      virtual Resource* loadResource(std::string path) { return new Resource; };
       virtual Resource* loadResource(rapidjson::Document& document) = 0;
 };
 

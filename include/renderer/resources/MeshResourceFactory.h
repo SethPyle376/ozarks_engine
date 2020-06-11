@@ -16,6 +16,7 @@ class MeshResourceFactory : public ResourceFactory {
       }
 
       Resource* loadResource(rapidjson::Document& document);
+      Resource* loadResource(std::string path);
 };
 
 #endif//OZARKS_ENGINE_MESHRESOURCEFACTORY_H

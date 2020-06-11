@@ -9,3 +9,8 @@ Resource * MeshResourceFactory::loadResource(rapidjson::Document& document) {
   MeshResource* meshResource = new MeshResource();
   return meshResource;
 }
+
+Resource* MeshResourceFactory::loadResource(std::string path) {
+  MeshResource* meshResource = new MeshResource();
+  return meshResource;
+}
