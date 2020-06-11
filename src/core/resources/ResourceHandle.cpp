@@ -6,5 +6,7 @@
 #include "core/resources/ResourceManager.h"
 
 ResourceHandle::~ResourceHandle() {
-  ResourceManager::getInstance()->destroyResource(this);
+  if (this->resource) {
+    ResourceManager::getInstance()->destroyResource(this);
+  }
 }

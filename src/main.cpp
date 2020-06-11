@@ -15,17 +15,16 @@
 
 #include "bgfx/bgfx.h"
 
-int main()
-{
+int main() {
   GameObjectManager *objectManager = GameObjectManager::getInstance();
   ComponentManager *componentManager = ComponentManager::getInstance();
   ResourceManager *resourceManager = ResourceManager::getInstance();
 
-  Actor* testActor1 = new Actor();
-  Actor* testActor2 = new Actor();
-  Actor* testActor3 = new Actor();
+  Actor *testActor1 = new Actor();
+  Actor *testActor2 = new Actor();
+  Actor *testActor3 = new Actor();
 
-  TestComponent* testComponent = new TestComponent();
+  TestComponent *testComponent = new TestComponent();
 
   objectManager->registerObject(testActor1);
   objectManager->registerObject(testActor2);
@@ -48,13 +47,9 @@ int main()
   resourceManager->registerFactory(meshFactory);
   resourceManager->registerFactory(modelFactory);
 
-
-  ResourceHandle testResource = resourceManager->getResource("test/testResource.json");
-  ResourceHandle testMeshResource = resourceManager->getResource("test/renderer/testMeshResource.json");
-  ResourceHandle testModelResource = resourceManager->getResource("test/renderer/testModelResource.json");
-  ModelResource* modelResource = (ModelResource*)(testModelResource.resource);
-  std::cout << "resources created" << std::endl;
-
+  {
+    ResourceHandle testModelResource = resourceManager->getResource("test/renderer/testModelResource.json");
+  }
 
   std::cout << "test" << std::endl;
 }

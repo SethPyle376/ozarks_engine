@@ -12,6 +12,7 @@ class ResourceManager;
 
 class Resource {
   public:
+      virtual ~Resource() = default;
       std::string type;
 };
 #endif//OZARKS_ENGINE_RESOURCE_H

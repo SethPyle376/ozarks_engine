@@ -10,8 +10,8 @@
 
 class ModelResource : public Resource {
   public:
-      ResourceHandle meshHandle = ResourceHandle();
-      ResourceHandle materialHandle = ResourceHandle();
+      ResourceHandle meshHandle;
+      ResourceHandle materialHandle;
 };
 
 #endif//OZARKS_ENGINE_MODELRESOURCE_H
