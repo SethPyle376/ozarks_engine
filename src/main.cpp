@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <renderer/components/ModelComponent.h>
 #include <renderer/resources/MeshResourceFactory.h>
 #include <renderer/resources/ModelResourceFactory.h>
 
@@ -26,19 +27,6 @@ int main() {
 
   TestComponent *testComponent = new TestComponent();
 
-  objectManager->registerObject(testActor1);
-  objectManager->registerObject(testActor2);
-  objectManager->registerObject(testActor3);
-
-  testActor1->addChild(testActor2);
-  testActor2->addChild(testActor3);
-
-  testActor1->addComponent(testComponent);
-
-  testActor1->tick(0);
-
-  delete testActor1;
-
   TestResourceFactory *factory = new TestResourceFactory();
   MeshResourceFactory *meshFactory = new MeshResourceFactory();
   ModelResourceFactory *modelFactory = new ModelResourceFactory();
@@ -47,9 +35,17 @@ int main() {
   resourceManager->registerFactory(meshFactory);
   resourceManager->registerFactory(modelFactory);
 
-  {
-    ResourceHandle testModelResource = resourceManager->getResource("test/renderer/testModelResource.json");
-  }
+  ModelComponent *modelComponent = new ModelComponent("model_component", "test/renderer/testModelResource.json");
 
-  std::cout << "test" << std::endl;
+  objectManager->registerObject(testActor1);
+  objectManager->registerObject(testActor2);
+  objectManager->registerObject(testActor3);
+
+  testActor1->addChild(testActor2);
+  testActor2->addChild(testActor3);
+
+  testActor1->addComponent(testComponent);
+  testActor3->addComponent(modelComponent);
+
+  testActor1->tick(0);
 }
