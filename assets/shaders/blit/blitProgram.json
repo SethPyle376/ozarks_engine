@@ -1,0 +1,5 @@
+{
+  "type": "shader_program_resource",
+  "vertexPath": "shaders/forward/blit/$API/blitVert.sc",
+  "fragmentPath": "shaders/forward/blit/$API/blitFrag.sc"
+}

@@ -37,6 +37,4 @@ class CentralConfig {
       }
 };
 
-CentralConfig* CentralConfig::instance = nullptr;
-
 #endif//OZARKS_ENGINE_CENTRALCONFIG_H

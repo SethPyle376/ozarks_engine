@@ -34,13 +34,10 @@ class BGFXRenderContext : public RenderContext {
         bgfxInit.resolution.height = window->height;
         // bgfxInit.resolution.reset = BGFX_RESET_VSYNC;
 
-
         std::string rendererType = "OpenGL";
         rapidjson::Value::ConstMemberIterator itr = config->document["renderOptions"].FindMember("rendererType");
 
-        if (itr != config->document.MemberEnd()) {
-          rendererType = config->document["renderOptions"]["rendererType"].GetString();
-        }
+        rendererType = config->document["renderOptions"]["rendererType"].GetString();
 
         if (rendererType == "OpenGL") {
           bgfxInit.type = bgfx::RendererType::OpenGL;
@@ -48,7 +45,7 @@ class BGFXRenderContext : public RenderContext {
           bgfxInit.type = bgfx::RendererType::Vulkan;
         }
 
-        bgfx::init(bgfxInit);
+        bool status = bgfx::init(bgfxInit);
       }
 };
 

@@ -5,6 +5,10 @@
 #ifndef OZARKS_ENGINE_PROGRAMRESOURCEFACTORY_H
 #define OZARKS_ENGINE_PROGRAMRESOURCEFACTORY_H
 
+#include <string>
+#include <regex>
+
+#include "core/config/CentralConfig.h"
 #include "core/resources/ResourceFactory.h"
 #include "renderer/resources/ProgramResource.h"
 #include "renderer/utils/ShaderUtils.h"

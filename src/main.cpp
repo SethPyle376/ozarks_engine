@@ -5,8 +5,10 @@
 #include <iostream>
 #include <renderer/bgfx/BGFXRenderContext.h>
 #include <renderer/components/ModelComponent.h>
+#include <renderer/forward/ForwardRenderer.h>
 #include <renderer/resources/MeshResourceFactory.h>
 #include <renderer/resources/ModelResourceFactory.h>
+#include <renderer/resources/ProgramResourceFactory.h>
 
 #include "core/components/TestComponent.h"
 #include "core/managers/GameObjectManager.h"
@@ -37,10 +39,14 @@ int main() {
   TestResourceFactory *factory = new TestResourceFactory();
   MeshResourceFactory *meshFactory = new MeshResourceFactory();
   ModelResourceFactory *modelFactory = new ModelResourceFactory();
+  ProgramResourceFactory *programResourceFactory = new ProgramResourceFactory();
 
   resourceManager->registerFactory(factory);
   resourceManager->registerFactory(meshFactory);
   resourceManager->registerFactory(modelFactory);
+  resourceManager->registerFactory(programResourceFactory);
+
+  ForwardRenderer forwardRenderer = ForwardRenderer();
 
   ModelComponent *modelComponent = new ModelComponent("model_component", "test/renderer/testModelResource.json");
 

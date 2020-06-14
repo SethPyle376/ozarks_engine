@@ -1,0 +1,5 @@
+{
+  "type": "shader_program_resource",
+  "vertexPath": "shaders/forward/compiled/$API/forwardVert.sc.bin",
+  "fragmentPath": "shaders/forward/compiled/$API/forwardFrag.sc.bin"
+}

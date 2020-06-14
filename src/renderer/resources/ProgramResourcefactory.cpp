@@ -9,7 +9,15 @@ ProgramResourceFactory::ProgramResourceFactory() {
 }
 
 Resource* ProgramResourceFactory::loadResource(rapidjson::Document &document) {
-  return loadProgram(document["vertexPath"].GetString(), document["fragmentPath"].GetString());
+  std::string vertexPath = std::string("assets/") + document["vertexPath"].GetString();
+  std::string fragmentPath = std::string("assets/") + document["fragmentPath"].GetString();
+
+  std::string apiString = CentralConfig::getInstance()->document["renderOptions"]["rendererType"].GetString();
+
+  vertexPath = std::regex_replace(vertexPath, std::regex("\\$API"), apiString);
+  fragmentPath = std::regex_replace(fragmentPath, std::regex("\\$API"), apiString);
+
+  return loadProgram(vertexPath, fragmentPath);
 }
 
 ProgramResource* ProgramResourceFactory::loadProgram(std::string vertPath, std::string fragPath) {
@@ -22,5 +30,7 @@ ProgramResource* ProgramResourceFactory::loadProgram(std::string vertPath, std::
 
   ProgramResource* programResource = new ProgramResource();
   programResource->programHandle = bgfx::createProgram(vsh, fsh, true);
+
+  return programResource;
 }
 
