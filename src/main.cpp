@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <renderer/bgfx/BGFXRenderContext.h>
 #include <renderer/components/ModelComponent.h>
 #include <renderer/resources/MeshResourceFactory.h>
 #include <renderer/resources/ModelResourceFactory.h>
@@ -20,6 +21,12 @@ int main() {
   GameObjectManager *objectManager = GameObjectManager::getInstance();
   ComponentManager *componentManager = ComponentManager::getInstance();
   ResourceManager *resourceManager = ResourceManager::getInstance();
+  CentralConfig *centralConfig = CentralConfig::getInstance();
+
+  centralConfig->load("./config.json");
+
+  BGFXRenderContext renderContext;
+  renderContext.start();
 
   Actor *testActor1 = new Actor();
   Actor *testActor2 = new Actor();

@@ -1,0 +1,7 @@
+{
+  "renderOptions": {
+    "windowWidth": 1920,
+    "windowHeight": 1080,
+    "rendererType": "OpenGL"
+  }
+}
