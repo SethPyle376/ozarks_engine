@@ -46,7 +46,7 @@ int main() {
   resourceManager->registerFactory(modelFactory);
   resourceManager->registerFactory(programResourceFactory);
 
-  ForwardRenderer forwardRenderer = ForwardRenderer();
+  ForwardRenderer forwardRenderer = ForwardRenderer(centralConfig->document["renderOptions"]["windowWidth"].GetInt(), centralConfig->document["renderOptions"]["windowHeight"].GetInt());
 
   ModelComponent *modelComponent = new ModelComponent("model_component", "test/renderer/testModelResource.json");
 

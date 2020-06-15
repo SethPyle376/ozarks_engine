@@ -22,7 +22,7 @@ file(GLOB MAINSOURCES src/*.cpp)
 file(GLOB SUBSOURCES src/*/*.cpp)
 file(GLOB SUBSUBSOURCES src/*/*/*.cpp)
 
-set(SOURCE_FILES ${MAINSOURCES} ${SUBSOURCES} ${SUBSUBSOURCES} src/core/config/CentralConfig.cpp)
+set(SOURCE_FILES ${MAINSOURCES} ${SUBSOURCES} ${SUBSUBSOURCES} src/core/config/CentralConfig.cpp include/renderer/utils/RenderUtils.h src/renderer/utils/RenderUtils.cpp)
 
 include_directories(external/bimg/3rdparty)
 include_directories(external/bimg/3rdparty/astc-codec/include)
