@@ -22,7 +22,9 @@ file(GLOB MAINSOURCES src/*.cpp)
 file(GLOB SUBSOURCES src/*/*.cpp)
 file(GLOB SUBSUBSOURCES src/*/*/*.cpp)
 
-set(SOURCE_FILES ${MAINSOURCES} ${SUBSOURCES} ${SUBSUBSOURCES} src/core/config/CentralConfig.cpp include/renderer/utils/RenderUtils.h src/renderer/utils/RenderUtils.cpp)
+set(SOURCE_FILES ${MAINSOURCES} ${SUBSOURCES} ${SUBSUBSOURCES} src/core/config/CentralConfig.cpp include/renderer/utils/RenderUtils.h src/renderer/utils/RenderUtils.cpp include/runtime/scene/GLTFSceneLoader.h src/runtime/scene/GLTFSceneLoader.cpp)
+
+add_subdirectory(external)
 
 include_directories(external/bimg/3rdparty)
 include_directories(external/bimg/3rdparty/astc-codec/include)
@@ -31,4 +33,4 @@ add_library( bimg STATIC ${BIMGSOURCES} )
 
 add_executable(ozarks_engine ${SOURCE_FILES})
 
-target_link_libraries(ozarks_engine ${SDL2_LIBRARIES} ${BGFX_LIB})
+target_link_libraries(ozarks_engine ${SDL2_LIBRARIES} ${BGFX_LIB} assimp)
